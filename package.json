@@ -1,0 +1,23 @@
+{
+  "name": "fcm-token-generator",
+  "version": "1.0.0",
+  "description": "Gerador de tokens FCM para teste de notificações push",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000",
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": [
+    "firebase",
+    "fcm",
+    "push-notifications",
+    "token-generator",
+    "cloud-messaging"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

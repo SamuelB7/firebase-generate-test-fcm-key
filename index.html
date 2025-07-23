@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FCM Token Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>🔔 FCM Token Generator</h1>
+        <p class="description">
+          Clique no botão abaixo para gerar um token FCM do Firebase para testar
+          notificações push.
+        </p>
+
+        <div class="status" id="status">
+          <span class="status-text">Aguardando configuração...</span>
+        </div>
+
+        <button id="generateToken" class="btn" disabled>
+          <span class="btn-text">Gerar Token FCM</span>
+          <span class="loader" id="loader"></span>
+        </button>
+
+        <div class="token-container" id="tokenContainer" style="display: none">
+          <h3>Token FCM Gerado:</h3>
+          <div class="token-box">
+            <textarea id="tokenOutput" readonly></textarea>
+            <button id="copyToken" class="copy-btn">📋 Copiar</button>
+          </div>
+          <div class="token-info">
+            <small
+              >Use este token para testar o envio de notificações push no seu
+              microsserviço.</small
+            >
+          </div>
+        </div>
+
+        <div class="error-container" id="errorContainer" style="display: none">
+          <h3>❌ Erro:</h3>
+          <div class="error-box">
+            <p id="errorMessage"></p>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <h3>📋 Instruções:</h3>
+          <ol>
+            <li>
+              Configure as credenciais do Firebase no arquivo <code>.env</code>
+            </li>
+            <li>
+              Certifique-se de que o projeto Firebase tem o Cloud Messaging
+              habilitado
+            </li>
+            <li>Gere as chaves VAPID no console do Firebase</li>
+            <li>Clique em "Gerar Token FCM" para obter o token de teste</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
