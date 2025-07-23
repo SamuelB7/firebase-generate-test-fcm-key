@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,63 +11,59 @@
       <div class="card">
         <h1>🔔 FCM Token Generator</h1>
         <p class="description">
-          Clique no botão abaixo para gerar um token FCM do Firebase para testar
-          notificações push.
+          Click the button below to generate a Firebase FCM token for testing
+          push notifications.
         </p>
 
         <div class="status" id="status">
-          <span class="status-text">Aguardando configuração...</span>
+          <span class="status-text">Waiting for configuration...</span>
         </div>
 
         <button id="generateToken" class="btn" disabled>
-          <span class="btn-text">Gerar Token FCM</span>
+          <span class="btn-text">Generate FCM Token</span>
           <span class="loader" id="loader"></span>
         </button>
 
         <div class="token-container" id="tokenContainer" style="display: none">
-          <h3>Token FCM Gerado:</h3>
+          <h3>Generated FCM Token:</h3>
           <div class="token-box">
             <textarea id="tokenOutput" readonly></textarea>
-            <button id="copyToken" class="copy-btn">📋 Copiar</button>
+            <button id="copyToken" class="copy-btn">📋 Copy</button>
           </div>
           <div class="token-info">
             <small
-              >Use este token para testar o envio de notificações push no seu
-              microsserviço.</small
+              >Use this token to test sending push notifications in your
+              microservice.</small
             >
           </div>
 
-          <!-- Botão para testar notificação localmente -->
+          <!-- Button to test notification locally -->
           <div class="test-container">
             <button id="testNotification" class="btn test-btn">
-              🧪 Testar Notificação Localmente
+              🧪 Test Notification Locally
             </button>
             <small
-              >Simula o recebimento de uma notificação para testar o
-              sistema.</small
+              >Simulates receiving a notification to test the system.</small
             >
           </div>
         </div>
 
         <div class="error-container" id="errorContainer" style="display: none">
-          <h3>❌ Erro:</h3>
+          <h3>❌ Error:</h3>
           <div class="error-box">
             <p id="errorMessage"></p>
           </div>
         </div>
 
         <div class="instructions">
-          <h3>📋 Instruções:</h3>
+          <h3>📋 Instructions:</h3>
           <ol>
             <li>
-              Configure as credenciais do Firebase no arquivo <code>.env</code>
+              Configure Firebase credentials in the <code>.env</code> file
             </li>
-            <li>
-              Certifique-se de que o projeto Firebase tem o Cloud Messaging
-              habilitado
-            </li>
-            <li>Gere as chaves VAPID no console do Firebase</li>
-            <li>Clique em "Gerar Token FCM" para obter o token de teste</li>
+            <li>Make sure your Firebase project has Cloud Messaging enabled</li>
+            <li>Generate VAPID keys in the Firebase console</li>
+            <li>Click "Generate FCM Token" to get the test token</li>
           </ol>
         </div>
       </div>

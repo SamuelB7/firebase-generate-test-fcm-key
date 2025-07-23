@@ -46,7 +46,7 @@ function showError(message) {
   errorContainer.style.display = "block";
   tokenContainer.style.display = "none";
   errorMessage.textContent = message;
-  updateStatus("Erro ao configurar Firebase", "error");
+  updateStatus("Error on configuring Firebase", "error");
 }
 
 // Mostra token
@@ -54,7 +54,7 @@ function showToken(token) {
   tokenContainer.style.display = "block";
   errorContainer.style.display = "none";
   tokenOutput.value = token;
-  updateStatus("Token gerado com sucesso!", "success");
+  updateStatus("Token generated!", "success");
 }
 
 // Configura o loading do botão
@@ -71,7 +71,7 @@ function setButtonLoading(loading) {
 // Inicializa o Firebase
 async function initializeFirebase() {
   try {
-    updateStatus("Carregando configurações...", "loading");
+    updateStatus("Loading configs...", "loading");
 
     const config = await loadConfig();
     if (!config) {
@@ -114,7 +114,7 @@ async function initializeFirebase() {
       measurementId: config.FIREBASE_MEASUREMENT_ID,
     };
 
-    updateStatus("Carregando Firebase SDK...", "loading");
+    updateStatus("Loading Firebase SDK...", "loading");
 
     // Importa o Firebase
     const { initializeApp } = await import(
@@ -137,7 +137,7 @@ async function initializeFirebase() {
       console.log("Service Worker registrado:", registration);
     }
 
-    updateStatus("Firebase configurado! Clique para gerar token.", "ready");
+    updateStatus("Firebase configured! Clique to generate token.", "ready");
     generateButton.disabled = false;
 
     // Configura listener para mensagens
@@ -182,7 +182,7 @@ async function initializeFirebase() {
 async function generateFCMToken() {
   try {
     setButtonLoading(true);
-    updateStatus("Solicitando permissão para notificações...", "loading");
+    updateStatus("Checking permissions for notifications...", "loading");
 
     // Solicita permissão para notificações
     const permission = await Notification.requestPermission();
@@ -193,7 +193,7 @@ async function generateFCMToken() {
       );
     }
 
-    updateStatus("Gerando token FCM...", "loading");
+    updateStatus("Generating token...", "loading");
 
     // Importa getToken dinamicamente
     const { getToken } = await import(
