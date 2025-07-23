@@ -1,55 +1,55 @@
 # FCM Token Generator
 
-Um projeto simples para gerar tokens FCM (Firebase Cloud Messaging) para testar notificações push.
+A simple project to generate FCM (Firebase Cloud Messaging) tokens for testing push notifications.
 
-## 📋 Pré-requisitos
+## 📋 Prerequisites
 
-1. **Projeto Firebase configurado** com Cloud Messaging habilitado
-2. **Chaves VAPID** geradas no console do Firebase
-3. **Servidor HTTP local** para servir os arquivos (devido a restrições CORS)
+1. **Configured Firebase project** with Cloud Messaging enabled
+2. **VAPID keys** generated in the Firebase console
+3. **Local HTTP server** to serve files (due to CORS restrictions)
 
-## ⚙️ Configuração
+## ⚙️ Configuration
 
-### 1. Configure o arquivo `.env`
+### 1. Configure the `.env` file
 
-Edite o arquivo `.env` com suas credenciais do Firebase:
+Edit the `.env` file with your Firebase credentials:
 
 ```env
-# Configurações do Firebase
-FIREBASE_API_KEY=sua_api_key_aqui
-FIREBASE_AUTH_DOMAIN=seu_project_id.firebaseapp.com
-FIREBASE_PROJECT_ID=seu_project_id
-FIREBASE_STORAGE_BUCKET=seu_project_id.appspot.com
-FIREBASE_MESSAGING_SENDER_ID=seu_sender_id
-FIREBASE_APP_ID=seu_app_id
-FIREBASE_MEASUREMENT_ID=seu_measurement_id
+# Firebase configurations
+FIREBASE_API_KEY=your_api_key_here
+FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
+FIREBASE_PROJECT_ID=your_project_id
+FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+FIREBASE_APP_ID=your_app_id
+FIREBASE_MEASUREMENT_ID=your_measurement_id
 
-# Chave VAPID para Web Push
-FIREBASE_VAPID_KEY=sua_vapid_key_aqui
+# VAPID key for Web Push
+FIREBASE_VAPID_KEY=your_vapid_key_here
 ```
 
-### 2. Como obter as credenciais do Firebase
+### 2. How to get Firebase credentials
 
-1. Acesse o [Console do Firebase](https://console.firebase.google.com/)
-2. Selecione seu projeto ou crie um novo
-3. Vá em **Configurações do projeto** (ícone de engrenagem)
-4. Na aba **Geral**, role até **Seus aplicativos** e clique em **Web**
-5. Copie as configurações para o arquivo `.env`
+1. Access the [Firebase Console](https://console.firebase.google.com/)
+2. Select your project or create a new one
+3. Go to **Project settings** (gear icon)
+4. In the **General** tab, scroll to **Your apps** and click **Web**
+5. Copy the configurations to the `.env` file
 
-### 3. Como obter a chave VAPID
+### 3. How to get the VAPID key
 
-1. No Console do Firebase, vá em **Configurações do projeto**
-2. Clique na aba **Cloud Messaging**
-3. Na seção **Configuração da Web**, clique em **Gerar par de chaves**
-4. Copie a chave gerada para `FIREBASE_VAPID_KEY` no arquivo `.env`
+1. In the Firebase Console, go to **Project settings**
+2. Click on the **Cloud Messaging** tab
+3. In the **Web configuration** section, click **Generate key pair**
+4. Copy the generated key to `FIREBASE_VAPID_KEY` in the `.env` file
 
-## 🚀 Como usar
+## 🚀 How to use
 
-### 1. Inicie um servidor HTTP local
+### 1. Start a local HTTP server
 
-Como o projeto usa módulos ES6 e faz requisições para arquivos locais, você precisa servir os arquivos através de um servidor HTTP.
+Since the project uses ES6 modules and makes requests to local files, you need to serve the files through an HTTP server.
 
-**Opção 1: Python**
+**Option 1: Python**
 ```bash
 # Python 3
 python -m http.server 8000
@@ -58,70 +58,70 @@ python -m http.server 8000
 python -m SimpleHTTPServer 8000
 ```
 
-**Opção 2: Node.js (npx)**
+**Option 2: Node.js (npx)**
 ```bash
 npx http-server -p 8000
 ```
 
-**Opção 3: PHP**
+**Option 3: PHP**
 ```bash
 php -S localhost:8000
 ```
 
-### 2. Acesse a aplicação
+### 2. Access the application
 
-Abra seu navegador e vá para:
+Open your browser and go to:
 ```
 http://localhost:8000
 ```
 
-### 3. Gere o token FCM
+### 3. Generate the FCM token
 
-1. A página irá carregar e configurar automaticamente o Firebase
-2. Clique no botão **"Gerar Token FCM"**
-3. Aceite a permissão para notificações quando solicitado
-4. O token FCM será exibido na tela
-5. Use o botão **"Copiar"** para copiar o token
+1. The page will load and automatically configure Firebase
+2. Click the **"Generate FCM Token"** button
+3. Accept the notification permission when prompted
+4. The FCM token will be displayed on screen
+5. Use the **"Copy"** button to copy the token
 
-### 4. Teste o sistema de notificações
+### 4. Test the notification system
 
-1. **Teste local**: Clique no botão **"Testar Notificação Localmente"** para simular uma notificação
-2. **Teste real**: Use o token gerado com os exemplos em `NOTIFICATION_EXAMPLES.md`
-3. **Visualize**: As notificações aparecerão como alertas visuais e no painel de notificações
-4. **Áudio**: Um som será reproduzido quando uma notificação é recebida
+1. **Local test**: Click the **"Test Notification Locally"** button to simulate a notification
+2. **Real test**: Use the generated token with the examples in `NOTIFICATION_EXAMPLES.md`
+3. **Visualize**: Notifications will appear as visual alerts and in the notifications panel
+4. **Audio**: A sound will be played when a notification is received
 
-## 🔧 Funcionalidades
+## 🔧 Features
 
-- ✅ Interface simples e intuitiva
-- ✅ Carregamento automático das configurações do `.env`
-- ✅ Validação das credenciais do Firebase
-- ✅ Geração de tokens FCM
-- ✅ **Alertas visuais** para notificações recebidas
-## 📱 Testando notificações
+- ✅ Simple and intuitive interface
+- ✅ Automatic loading of `.env` configurations
+- ✅ Firebase credentials validation
+- ✅ FCM token generation
+- ✅ **Visual alerts** for received notifications
+## 📱 Testing notifications
 
-Após gerar o token, você pode usá-lo para testar o envio de notificações:
+After generating the token, you can use it to test sending notifications:
 
-### 🧪 Teste Local
-1. Clique no botão **"Testar Notificação Localmente"** na interface
-2. Observe o alert visual, som e entrada no painel de notificações
+### 🧪 Local Test
+1. Click the **"Test Notification Locally"** button in the interface
+2. Observe the visual alert, sound and entry in the notifications panel
 
-### 🌐 Teste Real
-Consulte o arquivo `NOTIFICATION_EXAMPLES.md` para exemplos completos de como enviar notificações via:
+### 🌐 Real Test
+Consult the `NOTIFICATION_EXAMPLES.md` file for complete examples of how to send notifications via:
 
-1. **Console do Firebase** - Cloud Messaging
-2. **cURL** - Via linha de comando  
-3. **Python** - Script para automação
-4. **Node.js** - SDK Admin do Firebase
-5. **Postman** - Interface visual para testes
+1. **Firebase Console** - Cloud Messaging
+2. **cURL** - Via command line  
+3. **Python** - Script for automation
+4. **Node.js** - Firebase Admin SDK
+5. **Postman** - Visual interface for testing
 
-### Exemplo de payload para teste:
+### Example payload for testing:
 
 ```json
 {
-    "to": "SEU_TOKEN_FCM_AQUI",
+    "to": "YOUR_FCM_TOKEN_HERE",
     "notification": {
-        "title": "Teste de Notificação",
-        "body": "Esta é uma notificação de teste!",
+        "title": "Test Notification",
+        "body": "This is a test notification!",
         "icon": "/icon-192x192.png"
     },
     "data": {
@@ -130,34 +130,34 @@ Consulte o arquivo `NOTIFICATION_EXAMPLES.md` para exemplos completos de como en
 }
 ```
 
-## 🐛 Solução de problemas
+## 🐛 Troubleshooting
 
-### Erro: "Permissão para notificações negada"
-- Certifique-se de clicar em "Permitir" quando o navegador solicitar permissão
-- Verifique as configurações de notificação do seu navegador
+### Error: "Notification permission denied"
+- Make sure to click "Allow" when the browser requests permission
+- Check your browser's notification settings
 
-### Erro: "Não foi possível gerar o token FCM"
-- Verifique se todas as configurações no `.env` estão corretas
-- Certifique-se de que o Cloud Messaging está habilitado no Firebase
-- Verifique se a chave VAPID está correta
+### Error: "Could not generate FCM token"
+- Check if all configurations in `.env` are correct
+- Make sure Cloud Messaging is enabled in Firebase
+- Verify if the VAPID key is correct
 
-### Erro: "Não foi possível carregar o arquivo .env"
-- Certifique-se de estar servindo os arquivos através de um servidor HTTP
-- Verifique se o arquivo `.env` está na raiz do projeto
+### Error: "Could not load .env file"
+- Make sure you are serving files through an HTTP server
+- Check if the `.env` file is in the project root
 
-## 📂 Estrutura do projeto
+## 📂 Project structure
 
 ```
 fcm-test-key/
-├── index.html              # Página principal
-├── styles.css              # Estilos da interface
-├── app.js                  # Lógica principal da aplicação
-├── firebase-messaging-sw.js # Service Worker para FCM
-├── .env                    # Configurações do Firebase
-└── README.md               # Este arquivo
+├── index.html              # Main page
+├── styles.css              # Interface styles
+├── app.js                  # Main application logic
+├── firebase-messaging-sw.js # Service Worker for FCM
+├── .env                    # Firebase configurations
+└── README.md               # This file
 ```
 
-## 🔗 Referências
+## 🔗 References
 
 - [Firebase Cloud Messaging Web](https://firebase.google.com/docs/cloud-messaging/js/client)
 - [Web Push Notifications](https://developer.chrome.com/blog/web-push-interop-wins)
