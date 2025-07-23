@@ -13,8 +13,8 @@ curl -X POST https://fcm.googleapis.com/fcm/send \
   -d '{
     "to": "YOUR_FCM_TOKEN",
     "notification": {
-      "title": "Teste de Notificação",
-      "body": "Esta é uma notificação de teste do seu microsserviço!",
+      "title": "Notification test",
+      "body": "This is a test notification!",
       "icon": "/icon-192x192.png",
       "click_action": "https://seu-site.com"
     },

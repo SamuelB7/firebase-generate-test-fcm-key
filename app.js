@@ -394,8 +394,8 @@ function testLocalNotification() {
   // Simula uma notificação recebida
   const mockPayload = {
     notification: {
-      title: "🎉 Teste de Notificação",
-      body: "Esta é uma notificação de teste para verificar se o sistema está funcionando corretamente!",
+      title: "🎉 Test Notification",
+      body: "This is a test notification from the local app.",
       icon: "/icon-192x192.png",
     },
     data: {
