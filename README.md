@@ -83,24 +83,36 @@ http://localhost:8000
 4. O token FCM será exibido na tela
 5. Use o botão **"Copiar"** para copiar o token
 
+### 4. Teste o sistema de notificações
+
+1. **Teste local**: Clique no botão **"Testar Notificação Localmente"** para simular uma notificação
+2. **Teste real**: Use o token gerado com os exemplos em `NOTIFICATION_EXAMPLES.md`
+3. **Visualize**: As notificações aparecerão como alertas visuais e no painel de notificações
+4. **Áudio**: Um som será reproduzido quando uma notificação é recebida
+
 ## 🔧 Funcionalidades
 
 - ✅ Interface simples e intuitiva
 - ✅ Carregamento automático das configurações do `.env`
 - ✅ Validação das credenciais do Firebase
 - ✅ Geração de tokens FCM
-- ✅ Cópia fácil do token para área de transferência
-- ✅ Recebimento de notificações push (foreground e background)
-- ✅ Service Worker para notificações em background
-- ✅ Tratamento de erros e feedback visual
-
+- ✅ **Alertas visuais** para notificações recebidas
 ## 📱 Testando notificações
 
-Após gerar o token, você pode usá-lo para testar o envio de notificações através do seu microsserviço ou usando ferramentas como:
+Após gerar o token, você pode usá-lo para testar o envio de notificações:
+
+### 🧪 Teste Local
+1. Clique no botão **"Testar Notificação Localmente"** na interface
+2. Observe o alert visual, som e entrada no painel de notificações
+
+### 🌐 Teste Real
+Consulte o arquivo `NOTIFICATION_EXAMPLES.md` para exemplos completos de como enviar notificações via:
 
 1. **Console do Firebase** - Cloud Messaging
-2. **Postman** - Enviando requests para a API do FCM
-3. **cURL** - Via linha de comando
+2. **cURL** - Via linha de comando  
+3. **Python** - Script para automação
+4. **Node.js** - SDK Admin do Firebase
+5. **Postman** - Interface visual para testes
 
 ### Exemplo de payload para teste:
 
